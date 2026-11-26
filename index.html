@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact information – Crafts and Happyy</title>
+  <style>
+    :root {
+      --bg-page: #ffffff;
+      --bg-dark: #111111;
+      --bg-pill-bar: #fbf8f3;
+      --text-primary: #1c1c1c;
+      --text-muted: #4a4a4a;
+      --border-light: #e6e2da;
+      --accent-green: #25d366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      padding: 9px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .announcement-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Main Header Navigation */
+    .site-header {
+      background-color: var(--bg-page);
+      border-bottom: 1px solid #f0eee9;
+      padding: 16px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--text-primary);
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* Pill Category Strip */
+    .category-strip {
+      background-color: var(--bg-pill-bar);
+      border-bottom: 1px solid var(--border-light);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .category-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-pill {
+      background-color: #ffffff;
+      border: 1px solid #dcd7ce;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      white-space: nowrap;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .category-pill:hover {
+      background-color: #f4f0e8;
+      border-color: #c5beb2;
+    }
+
+    /* Main Contact Section */
+    .contact-container {
+      max-width: 720px;
+      margin: 64px auto 72px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .page-title {
+      font-size: 40px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 44px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .contact-row strong {
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .contact-row a {
+      color: var(--text-muted);
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-row a:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--text-primary);
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      max-width: 540px;
+      margin: 96px auto 64px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .newsletter-section h2 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-section p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      padding: 11px 14px;
+      border: 1px solid #cfc9be;
+      border-radius: 4px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--text-primary);
+    }
+
+    .newsletter-form button {
+      padding: 11px 20px;
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .newsletter-form button:hover {
+      opacity: 0.88;
+    }
+
+    .subscribe-message {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #1b6b3a;
+      min-height: 18px;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid #ece8e0;
+      padding: 28px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+      z-index: 100;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.06);
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 14px 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .page-title {
+        font-size: 32px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="announcement-bar">
+    <span class="announcement-item">✦ Handmade Creations</span>
+    <span class="announcement-item">✦ Custom Orders Welcome</span>
+    <span class="announcement-item">✦ Special Offer — Use Code CRAFT20</span>
+    <span class="announcement-item">✦ Secure Checkout</span>
+    <span class="announcement-item">✦ Crafted with Care</span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <a href="#" class="brand-logo">CRAFTS &amp; HAPPYY</a>
+
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="#shop">Shop ▾</a>
+      <a href="#new">New Arrivals</a>
+      <a href="#creations">Creations ▾</a>
+      <a href="#custom">Custom Orders ▾</a>
+      <a href="#collections">Collections ▾</a>
+      <a href="#offers">Offers ▾</a>
+    </nav>
+
+    <div class="header-actions">
+      <span>India | INR ₹ ▾</span>
+      <span title="Search">🔍</span>
+      <span title="Account">👤</span>
+      <span title="Bag">🛍️</span>
+    </div>
+  </header>
+
+  <!-- Pill Category Navigation -->
+  <div class="category-strip" aria-label="Categories">
+    <a href="#pipe-cleaner-art" class="category-pill">Pipe Cleaner Art</a>
+    <a href="#miniatures" class="category-pill">Miniatures</a>
+    <a href="#desk-decor" class="category-pill">Desk Decor</a>
+    <a href="#handmade-toys" class="category-pill">Handmade Toys</a>
+    <a href="#gift-sets" class="category-pill">Gift Sets</a>
+    <a href="#pastel-edit" class="category-pill">Pastel Edit</a>
+    <a href="#custom-requests" class="category-pill">Custom Requests</a>
+    <a href="#reels-picks" class="category-pill">Reels Picks</a>
+    <a href="#bundles" class="category-pill">Bundles</a>
+    <a href="#new-drops" class="category-pill">New Drops</a>
+  </div>
+
+  <!-- Main Contact Information -->
+  <main class="contact-container">
+    <h1 class="page-title">Contact information</h1>
+
+    <div class="contact-details">
+      <p class="contact-row"><strong>Trade name:</strong> Crafts and Happyy</p>
+      <p class="contact-row">
+        <strong>Phone number:</strong>
+        <a href="tel:+910000000000">+91-0000000000</a>
+      </p>
+      <p class="contact-row">
+        <strong>Email:</strong>
+        <a href="mailto:hello@craftsandhappyy.example">hello@craftsandhappyy.example</a>
+      </p>
+      <p class="contact-row">
+        <strong>Physical address:</strong> Studio Address, City, State, India
+      </p>
+    </div>
+  </main>
+
+  <!-- Email Subscription -->
+  <section class="newsletter-section" aria-labelledby="subscribe-heading">
+    <h2 id="subscribe-heading">Subscribe to our emails</h2>
+    <p>Be the first to know about new creations, studio updates, and exclusive offers.</p>
+
+    <form class="newsletter-form" id="newsletterForm">
+      <input
+        type="email"
+        id="subscriberEmail"
+        name="email"
+        placeholder="Email"
+        aria-label="Email"
+        required
+      />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="subscribe-message" id="subscribeMessage" role="status"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>© 2026, Crafts and Happyy</div>
+    <div class="footer-links">
+      <a href="#refund">Refund policy</a>
+      <a href="#privacy">Privacy policy</a>
+      <a href="#terms">Terms of service</a>
+      <a href="#shipping">Shipping policy</a>
+      <a href="#contact">Contact information</a>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a
+    href="https://wa.me/910000000000"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.82 11.82 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.85 11.85 0 0 0 5.77 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.49-8.43zm-8.45 18.33h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.29c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.89 9.89zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.11 3.22 5.11 4.52.71.31 1.27.49 1.71.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+    </svg>
+  </a>
+
+  <script>
+    const form = document.getElementById("newsletterForm");
+    const emailInput = document.getElementById("subscriberEmail");
+    const messageBox = document.getElementById("subscribeMessage");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const email = emailInput.value.trim();
+      if (!email) return;
+
+      messageBox.textContent = `Thanks for subscribing with ${email}!`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
